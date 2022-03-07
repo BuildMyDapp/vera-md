@@ -5,22 +5,6 @@
 
 ## Call functions
 
-- ### getLeasing (3 parameters):
-nftAddress,
-tokenId,
-leaseId
-```
-let leasingDetails = await contract.methods.getLeasing(nftAddress, tokenId, leaseId).call();
- ```   
- 
-- ### getRenting (3 parameters):
-nftAddress,
-tokenId,
-leaseId,
- ```
- let rentingDetails = await contract.methods.getRenting(nftAddress, tokenId, leaseId).call();
- ```
- 
 - ### getLeasingId (no parameter):
 ```
 let leasingId = await contract.methods.getleasingId().call();
