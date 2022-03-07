@@ -18,11 +18,12 @@ let rentFee = await contract.methods.rentFee().call();
 ## Write functions
 
 - ### lease (5 parameters):
-nftAddresses[],
+```nftAddresses[],
 tokenIds[],
 maxLeaseDurations[],
 dailyLeasePrices[],
-paymentTokens[]
+paymentTokens[]```
+
 ```
 let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,paymentTypes).send({ from: accounts[0] });
 ```
