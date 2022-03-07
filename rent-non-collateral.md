@@ -19,17 +19,6 @@ leaseId,
 
 ## Write functions
 
-- ### cancelLeasing (3 parameters):
-nftAddresses[],
-tokenIds[],
-leasingIds[]
-    
-- ### endRent (3 parameters):
-nftAddresses[],
-tokenIds[],
-leasingIds[]
-
-
 - ### lease (5 parameters):
 nftAddresses[],
 tokenIds[],
@@ -44,6 +33,17 @@ tokenIds[],
 leasingIds[],
 rentDurations[]
 
+- ### cancelLeasing (3 parameters):
+nftAddresses[],
+tokenIds[],
+leasingIds[]
+    
+- ### endRent (3 parameters):
+nftAddresses[],
+tokenIds[],
+leasingIds[]
+
+
 - ### setRentFee (1 parameters):
 rentFee
 
@@ -56,6 +56,7 @@ newBeneficiaryAddress
 ```
 let leasingDetails = await contract.methods.getLeasing(nftAddress, tokenId, leaseId).call();
  ```
+ 
  - ### getRenting
  ```
  let rentingDetails = await contract.methods.getRenting(nftAddress, tokenId, leaseId).call();
@@ -64,4 +65,14 @@ let leasingDetails = await contract.methods.getLeasing(nftAddress, tokenId, leas
  - ### getLeasingId
 ```
 let leasingId = await contract.methods.getleasingId().call();
+```
+
+ - ### rentFee
+```
+let rentFee = await contract.methods.rentFee().call();
+```
+
+- ### lease
+```
+let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,paymentTypes).send({ from: accounts[0] });
 ```
