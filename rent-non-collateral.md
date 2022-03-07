@@ -3,31 +3,50 @@ Rinkeby Contract address: 0x2401267f70dcDDEB90e525eb161D5C692b5d746B
 ## Call functions
  [TOC]
 
-- ### getLeasing:
-nftAddress
-tokenId
+- ### getLeasing (3 parameters):
+nftAddress,
+tokenId,
 leaseId
     
-- ### getRenting:
-nftAddress
-tokenId
-leaseId
+- ### getRenting (3 parameters):
+nftAddress,
+tokenId,
+leaseId,
 
-- ### getLeasingId:
+- ### getLeasingId (no parameter):
 
-- ### rentFee:
+- ### rentFee (no parameter):
 
 
 ## Write functions
 
-- ### cancelLeasing:
-nftAddresses[]
-tokenIds[]
+- ### cancelLeasing (3 parameters):
+nftAddresses[],
+tokenIds[],
 leasingIds[]
     
-- ### endRent:
-nftAddresses[]
-tokenIds[]
+- ### endRent (3 parameters):
+nftAddresses[],
+tokenIds[],
 leasingIds[]
 
 
+- ### lease (5 parameters):
+nftAddresses[],
+tokenIds[],
+maxLeaseDurations[],
+dailyLeasePrices[],
+paymentTokens[]
+
+
+- ### rentNFT (4 parameters):
+nftAddresses[],
+tokenIds[],
+leasingIds[],
+rentDurations[]
+
+- ### setRentFee (1 parameters):
+rentFee
+
+- ### setBeneficiary (1 parameters):
+newBeneficiaryAddress
