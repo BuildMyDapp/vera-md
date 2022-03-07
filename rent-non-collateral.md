@@ -6,16 +6,27 @@ Rinkeby Contract address: 0x2401267f70dcDDEB90e525eb161D5C692b5d746B
 nftAddress,
 tokenId,
 leaseId
-    
+```
+let leasingDetails = await contract.methods.getLeasing(nftAddress, tokenId, leaseId).call();
+ ```   
+ 
 - ### getRenting (3 parameters):
 nftAddress,
 tokenId,
 leaseId,
-
+ ```
+ let rentingDetails = await contract.methods.getRenting(nftAddress, tokenId, leaseId).call();
+ ```
+ 
 - ### getLeasingId (no parameter):
+```
+let leasingId = await contract.methods.getleasingId().call();
+```
 
 - ### rentFee (no parameter):
-
+```
+let rentFee = await contract.methods.rentFee().call();
+```
 
 ## Write functions
 
@@ -54,25 +65,13 @@ newBeneficiaryAddress
 
 # Read Functions
 
-- ### getLeasing
-```
-let leasingDetails = await contract.methods.getLeasing(nftAddress, tokenId, leaseId).call();
- ```
- 
- - ### getRenting
- ```
- let rentingDetails = await contract.methods.getRenting(nftAddress, tokenId, leaseId).call();
- ```
- 
- - ### getLeasingId
-```
-let leasingId = await contract.methods.getleasingId().call();
-```
 
- - ### rentFee
-```
-let rentFee = await contract.methods.rentFee().call();
-```
+ 
+ 
+ 
+
+
+
 # Write Functions
 
 - ### lease
