@@ -1,4 +1,7 @@
 Rinkeby Contract address: 0x2401267f70dcDDEB90e525eb161D5C692b5d746B
+#Instructions
+- to interact with the contract functions [web3](https://github.com/ChainSafe/web3.js) & smartcontract should be loaded
+-
 
 ## Call functions
 
