@@ -53,13 +53,13 @@ let receipt = await contract.methods.endRent(token_addresses, token_ids, leasing
 ```
 
 - ### setRentFee (1 parameters):
-rentFee
+```rentFee```
 ```
 let receipt = await contract.methods.setRentFee(rentFee).send({ from: accounts[0] });
 ```
 
 - ### setBeneficiary (1 parameters):
-newBeneficiaryAddress
+```newBeneficiaryAddress```
 ```
 let receipt = await contract.methods.setRentFee(newBeneficiaryAddress).send({ from: accounts[0] });
 ```
@@ -67,5 +67,5 @@ let receipt = await contract.methods.setRentFee(newBeneficiaryAddress).send({ fr
 
 # Integration Steps
 
-- contract cycle start from ``lease`` function where user need to lease the NFT
+- contract cycle start from ``lease`` function where user need to lease the NFT with these required parameters  ```nftAddresses[], tokenIds[], maxLeaseDurations[], dailyLeasePrices[], paymentTokens[]```
 - user can rent the leased nft by interacting with ```rentNFT``` function, to rent any NFT user need to provide ```getLeasingId``` of that specific nft with requred pararmeters ```nftAddresses[] ,tokenIds[], leasingIds[], rentDurations[] ```
