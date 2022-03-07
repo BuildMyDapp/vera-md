@@ -52,6 +52,8 @@ newBeneficiaryAddress
 
 # Web3 sample code
 
+# Read Functions
+
 - ### getLeasing
 ```
 let leasingDetails = await contract.methods.getLeasing(nftAddress, tokenId, leaseId).call();
@@ -71,6 +73,7 @@ let leasingId = await contract.methods.getleasingId().call();
 ```
 let rentFee = await contract.methods.rentFee().call();
 ```
+# Write Functions
 
 - ### lease
 ```
@@ -80,4 +83,13 @@ let receipt = await contract.methods.lease(token_addresses,token_ids,durations,d
 - ### rentNFT
 ```
 let receipt = await contract.methods.rentNFT(token_addresses, token_ids, leasingIds, rentDurations).send({ from: accounts[0] });
+```
+- ### cancelLeasing
+```
+let receipt = await contract.methods.cancelLeasing(token_addresses, token_ids, leasingIds).send({ from: accounts[0] });
+```
+
+- ### endRent 
+```
+let receipt = await contract.methods.endRent(token_addresses, token_ids, leasingIds).send({ from: accounts[0] });
 ```
