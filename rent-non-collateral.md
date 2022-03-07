@@ -76,3 +76,8 @@ let rentFee = await contract.methods.rentFee().call();
 ```
 let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,paymentTypes).send({ from: accounts[0] });
 ```
+
+- ### rentNFT
+```
+let receipt = await contract.methods.rentNFT(token_addresses, token_ids, leasingIds, rentDurations).send({ from: accounts[0] });
+```
