@@ -54,7 +54,11 @@ newBeneficiaryAddress
 
 - ### getLeasing
 ```
-let leasing = await contract.methods.getLeasing(nftAddress, tokenId, leaseId).call();
+let leasingDetails = await contract.methods.getLeasing(nftAddress, tokenId, leaseId).call();
+ ```
+ - ### getRenting
+ ```
+ let rentingDetails = await contract.methods.getRenting(nftAddress, tokenId, leaseId).call();
  ```
  
  - ### getLeasingId
