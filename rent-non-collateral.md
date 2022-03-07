@@ -52,8 +52,12 @@ newBeneficiaryAddress
 
 # Web3 sample code
 
-- ### getLeasingId
+- ### getLeasing
+```
+let leasing = await contract.methods.getLeasing(nftAddress, tokenId, leaseId).call();
  ```
+ 
+ - ### getLeasingId
+```
 let leasingId = await contract.methods.getleasingId().call();
 ```
-
