@@ -53,5 +53,7 @@ newBeneficiaryAddress
 # Web3 sample code
 
 - ### getLeasingId
+ ```
 let leasingId = await contract.methods.getleasingId().call();
+```
 
