@@ -1,7 +1,6 @@
 Rinkeby Contract address: 0x2401267f70dcDDEB90e525eb161D5C692b5d746B
 
 ## Call functions
- [TOC]
 
 - ### getLeasing (3 parameters):
 nftAddress,
@@ -50,3 +49,6 @@ rentFee
 
 - ### setBeneficiary (1 parameters):
 newBeneficiaryAddress
+
+# Web3 sample code
+
