@@ -64,5 +64,7 @@ let receipt = await contract.methods.setRentFee(newBeneficiaryAddress).send({ fr
 ```
 
 
+# Integration Steps
 
-
+- contract cycle start from ``lease`` function where user need to lease the NFT
+- user can rent the leased nft by interacting with ```rentNFT``` function, to rent any NFT user need to provide ```getLeasingId``` of that specific nft with requred pararmeters 
