@@ -1,6 +1,60 @@
 
+
+### What is Vera RentNFT
+
+RentNFT is an smart contract for ERC-721 and ERC-1155 leasing and renting. Users can lease the NFT and earn rent on them. The main contract of rentNFT is contracts/vRent. This contract allows users to lease ERC-721 and ERC-1155 NFTs in one single transaction.
+
 # Instructions
 - To interact with the contract functions [web3](https://github.com/ChainSafe/web3.js) & [smart contract](https://www.ibm.com/topics/smart-contracts) should be loaded
+
+### Integration Steps
+
+## Step 1 
+Web3 function 
+- ### lease (5 parameters):
+```nftAddresses[]```,
+```tokenIds[]```,
+```maxLeaseDurations[]```,
+```dailyLeasePrices[]```,
+```nftPrices[]```,
+```paymentTokens[]```
+
+```
+let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,nftPrices,paymentTypes).send({ from: accounts[0] });
+
+```
+API Body JSON
+   {
+          owner_address: user_address,
+          lend_id,
+          token_id,
+          token_address,
+          max_duration,
+          duration: duration,
+          payment_type: type,
+          nft_price,
+          daily_rent_price,
+          contract_address,
+          transaction_hash,
+          type,
+          application_address: ContractUtility.getRentalContractAddress(protocol),
+          nft: {
+            description,
+            name,
+            image,
+            token_id,
+            token_address,
+            token_uri
+            token_standard, //it can be ERC1155 or ERC721
+            permalink,
+            contract_collection: {
+              address: token_address,
+              name: name
+            }
+          }
+        }
+
+
 
 ## Call functions
 
