@@ -29,6 +29,7 @@ Dapp Artitecture
 let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,nftPrices,paymentTypes).send({ from: accounts[0] });
 
 ```
+
 After leasing NFT we need to get leasing id to for our off-chain data.
 **getLeasingId (no parameter)** returns leasing id 
 ```
@@ -93,7 +94,7 @@ To update these paramaters in off-chain of canceled leased NFT's
 ```
 
 
-## Step 3
+## Step 3:-
 
 ### Web3 Function
 
@@ -119,7 +120,7 @@ let receipt = await contract.methods.rentNFT(token_addresses, token_ids, leasing
                 active: true
  }
 ```
-### Step 4
+### Step 4:-
 
 ### Web3 Function
 - ### endRent (3 parameters):
