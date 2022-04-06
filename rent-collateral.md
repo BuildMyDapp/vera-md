@@ -24,7 +24,7 @@ let receipt = await contract.methods.lease(token_addresses,token_ids,durations,d
 
 ```
 API Body JSON
-   {
+ ```  {
           owner_address: user_address,
           lend_id,
           token_id,
@@ -53,7 +53,7 @@ API Body JSON
             }
           }
         }
-
+```
 
 
 ## Call functions
