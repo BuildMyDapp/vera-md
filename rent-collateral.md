@@ -9,9 +9,12 @@ RentNFT is an smart contract for ERC-721 and ERC-1155 leasing and renting. Users
 
 ## Integration Steps
 
+![image](https://user-images.githubusercontent.com/38735197/162038147-5e18ace0-9fae-437e-b0ec-97dfc1e5cdf6.png)
+
+
 ## Step 1 
 ### Web3 function 
- to lease the NFT we have `lease` function where we need to pass 5 given parameters
+ to lease the NFT we have `lease` function in smartcontract where we need to pass 5 given parameters
 - ### lease (5 parameters):
 ```nftAddresses[]```,
 ```tokenIds[]```,
@@ -24,14 +27,14 @@ RentNFT is an smart contract for ERC-721 and ERC-1155 leasing and renting. Users
 let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,nftPrices,paymentTypes).send({ from: accounts[0] });
 
 ```
-after leasing NFT we need to call leasing id to for our off-chain data
+after leasing NFT we need to get leasing id to for our off-chain data
 **getLeasingId (no parameter)** returns leasing id 
 ```
 let leasingId = await contract.methods.getleasingId().call();
 ```
 to save NFT off-chain data we need these required parameters
 API Body JSON
- ### Note this off-chain data parameters are required as per platform requirments, because this data is saving on off-chain so it does not have any relation with smart contract
+ ### Note: this off-chain data parameters are required as per platform requirments, because this data is saving on off-chain so it does not have any relation with smart contract
  ```  {
           owner_address: user_address,
           lend_id, //get from getLeasingId function 
@@ -62,13 +65,21 @@ API Body JSON
         }
 ```
 
+## Step 2 
+to stop lending we have `cancelLeasing` function in smartcontract
+
+
+- ### cancelLeasing (3 parameters):
+```nftAddresses[]```,
+```tokenIds[]```,
+```leasingIds[]```
+ ```
+let receipt = await contract.methods.cancelLeasing(token_addresses, token_ids, leasingIds).send({ from: accounts[0] });
+```
 
 ## Call functions
 
-- ### getLeasingId (no parameter):
-```
-let leasingId = await contract.methods.getleasingId().call();
-```
+
 
 - ### rentFee (no parameter):
 ```
@@ -77,17 +88,7 @@ let rentFee = await contract.methods.rentFee().call();
 
 ## Write functions
 
-- ### lease (5 parameters):
-```nftAddresses[]```,
-```tokenIds[]```,
-```maxLeaseDurations[]```,
-```dailyLeasePrices[]```,
-```nftPrices[]```,
-```paymentTokens[]```
 
-```
-let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,nftPrices,paymentTypes).send({ from: accounts[0] });
-```
 
 - ### rentNFT (4 parameters):
 ```nftAddresses[]```,
@@ -98,13 +99,7 @@ let receipt = await contract.methods.lease(token_addresses,token_ids,durations,d
 let receipt = await contract.methods.rentNFT(token_addresses, token_ids, leasingIds, rentDurations).send({ from: accounts[0] });
 ```
 
-- ### cancelLeasing (3 parameters):
-```nftAddresses[]```,
-```tokenIds[]```,
-```leasingIds[]```
- ```
-let receipt = await contract.methods.cancelLeasing(token_addresses, token_ids, leasingIds).send({ from: accounts[0] });
-```
+
 - ### endRent (3 parameters):
 ```nftAddresses[]```,
 ```tokenIds[]```,
