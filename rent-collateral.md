@@ -135,7 +135,7 @@ To update these paramaters in off-chain of canceled rented NFT's.
 ```
 
 # Platform SmartContract Functions
-These smartcontract functions will help to configure the smartcontract environment and these write functions are only be tramsact by Platform `owner_address`, 
+These smartcontract functions will help to configure the smartcontract environment and these write functions are only be transact by platform `owner_address`, 
 
 ## Write functions
 
