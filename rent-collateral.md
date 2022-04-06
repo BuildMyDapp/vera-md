@@ -12,7 +12,7 @@ Dapp Artitecture
 ![image](https://user-images.githubusercontent.com/38735197/162038147-5e18ace0-9fae-437e-b0ec-97dfc1e5cdf6.png)
 
 
-# Integration Steps
+# Integration Steps with off-chain Data
 
 ## Step 1 
 ### Web3 Function
@@ -81,7 +81,7 @@ to stop lending we have `cancelLeasing` function in smartcontract
 let receipt = await contract.methods.cancelLeasing(token_addresses, token_ids, leasingIds).send({ from: accounts[0] });
 ```
 ### API
-to update these paramaters in off-chain of canceled leasing NFT's
+to update these paramaters in off-chain of canceled leased NFT's
 ```
        {
             active: false,
@@ -115,23 +115,9 @@ let receipt = await contract.methods.rentNFT(token_addresses, token_ids, leasing
                 status: "Rent",
                 active: true
 ```
+### Step 4
 
-## Call functions
-
-
-
-- ### rentFee (no parameter):
-```
-let rentFee = await contract.methods.rentFee().call();
-```
-
-## Write functions
-
-
-
-
-
-
+### Web3 Function
 - ### endRent (3 parameters):
 ```nftAddresses[]```,
 ```tokenIds[]```,
@@ -139,6 +125,19 @@ let rentFee = await contract.methods.rentFee().call();
 ```
 let receipt = await contract.methods.endRent(token_addresses, token_ids, leasingIds).send({ from: accounts[0] });
 ```
+### API
+to update these paramaters in off-chain of canceled rented NFT's
+
+```
+            active: true,
+            user_rented: null,
+            status: "Lend"
+```
+
+### Platform SmartContract Functions
+these smartcontract functions will configure the smartcontract environment, 
+
+## Write functions
 
 - ### setRentFee (1 parameters):
 ```rentFee```
@@ -152,8 +151,15 @@ let receipt = await contract.methods.setRentFee(rentFee).send({ from: accounts[0
 let receipt = await contract.methods.setBeneficiary(newBeneficiaryAddress).send({ from: accounts[0] });
 ```
 
+## Call functions
 
-# Integration Steps
+- ### rentFee (no parameter):
+```
+let rentFee = await contract.methods.rentFee().call();
+```
+
+
+# Integration Conclusion
 
 - contract cycle start from ``lease`` function, where user need to lease the NFT with these required parameters  ```nftAddresses[], tokenIds[], maxLeaseDurations[], dailyLeasePrices[], nftPrices[],paymentTokens[]```
 - after leasing the NFT user will get leasing Id from ```getLeasingId``` function
