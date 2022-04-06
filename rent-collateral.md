@@ -12,11 +12,11 @@ Dapp Artitecture
 ![image](https://user-images.githubusercontent.com/38735197/162038147-5e18ace0-9fae-437e-b0ec-97dfc1e5cdf6.png)
 
 
-# Integration Steps with off-chain Data
+# Integration steps with off-chain data
 
-## Step 1 
+## Step 1:-
 ### Web3 Function
- to lease the NFT we have `lease` function in smartcontract where we need to pass 5 given parameters
+ To lease the NFT we have `lease` function in smartcontract where we need to pass 5 given parameters.
 - ### lease (5 parameters):
 ```nftAddresses[]```,
 ```tokenIds[]```,
@@ -29,13 +29,13 @@ Dapp Artitecture
 let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,nftPrices,paymentTypes).send({ from: accounts[0] });
 
 ```
-after leasing NFT we need to get leasing id to for our off-chain data
+After leasing NFT we need to get leasing id to for our off-chain data.
 **getLeasingId (no parameter)** returns leasing id 
 ```
 let leasingId = await contract.methods.getleasingId().call();
 ```
 ### API
-to save NFT off-chain data we need these required parameters
+to save the NFT's off-chain data, we need these required parameters.
 
  ### Note: this off-chain data parameters are required as per platform requirments, because this data is saving on off-chain so it does not have any relation with smartcontract
  ```  {
@@ -68,10 +68,10 @@ to save NFT off-chain data we need these required parameters
         }
 ```
 
-## Step 2 
+## Step 2:-
 
 ### Web3 Function
-to stop lending we have `cancelLeasing` function in smartcontract
+to stop the NFT's leasing, we have to call `cancelLeasing` function in smartcontract.
 
 - ### cancelLeasing (3 parameters):
 ```nftAddresses[]```,
@@ -81,7 +81,7 @@ to stop lending we have `cancelLeasing` function in smartcontract
 let receipt = await contract.methods.cancelLeasing(token_addresses, token_ids, leasingIds).send({ from: accounts[0] });
 ```
 ### API
-to update these paramaters in off-chain of canceled leased NFT's
+To update these paramaters in off-chain of canceled leased NFT's
 ```
        {
             active: false,
@@ -126,7 +126,7 @@ let receipt = await contract.methods.rentNFT(token_addresses, token_ids, leasing
 let receipt = await contract.methods.endRent(token_addresses, token_ids, leasingIds).send({ from: accounts[0] });
 ```
 ### API
-to update these paramaters in off-chain of canceled rented NFT's
+To update these paramaters in off-chain of canceled rented NFT's.
 
 ```
             active: true,
@@ -159,7 +159,7 @@ let rentFee = await contract.methods.rentFee().call();
 ```
 
 
-# Integration Conclusion
+# Integration Conclusion:-
 
 - contract cycle start from ``lease`` function, where user need to lease the NFT with these required parameters  ```nftAddresses[], tokenIds[], maxLeaseDurations[], dailyLeasePrices[], nftPrices[],paymentTokens[]```
 - after leasing the NFT user will get leasing Id from ```getLeasingId``` function
