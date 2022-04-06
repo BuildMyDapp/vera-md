@@ -16,7 +16,7 @@ Dapp Artitecture
 
 ## Step 1:-
 ### Web3 Function
- To lease the NFT we have `lease` function in smartcontract where we need to pass 5 given parameters.
+ To lease the NFT we have `lease` function in smart contract where we need to pass 5 given parameters.
 - ### lease (5 parameters):
 ```nftAddresses[]```,
 ```tokenIds[]```,
@@ -37,8 +37,10 @@ let leasingId = await contract.methods.getleasingId().call();
 ### API
 to save the NFT's off-chain data, we need these required parameters.
 
- ### Note: this off-chain data parameters are required as per platform requirments, because this data is saving on off-chain so it does not have any relation with smartcontract
- ```  {
+ ### Note: this off-chain data parameters are required as per platform requirments, because this data is saving on off-chain so it does not have any relation with smart contract
+ ```  
+   {
+     {
           owner_address: user_address,
           lend_id, //get from getLeasingId function 
           token_id,
@@ -71,7 +73,7 @@ to save the NFT's off-chain data, we need these required parameters.
 ## Step 2:-
 
 ### Web3 Function
-to stop the NFT's leasing, we have to call `cancelLeasing` function in smartcontract.
+to stop the NFT's leasing, we have to call `cancelLeasing` function in smart contract.
 
 - ### cancelLeasing (3 parameters):
 ```nftAddresses[]```,
@@ -107,6 +109,7 @@ let receipt = await contract.methods.rentNFT(token_addresses, token_ids, leasing
 ### API
 
 ```
+ {
                 user_rented, //user_address
                 block_timestamp, 
                 user_duration,
@@ -114,6 +117,7 @@ let receipt = await contract.methods.rentNFT(token_addresses, token_ids, leasing
                 duration_seconds, //should be in seconds
                 status: "Rent",
                 active: true
+ }
 ```
 ### Step 4
 
@@ -129,23 +133,25 @@ let receipt = await contract.methods.endRent(token_addresses, token_ids, leasing
 To update these paramaters in off-chain of canceled rented NFT's.
 
 ```
+{
             active: true,
             user_rented: null,
             status: "Lend"
+}
 ```
 
-# Platform SmartContract Functions
-These smartcontract functions will help to configure the smartcontract environment and these write functions are only be transact by platform `owner_address`, 
+# Platform smart contract functions
+These smart contract functions will help to configure the smart contract environment and these write functions are only be transact by platform `owner_address`, 
 
 ## Write functions
 
-- ### setRentFee (1 parameters):
+- ### setRentFee (1 parameter):
 ```rentFee```
 ```
 let receipt = await contract.methods.setRentFee(rentFee).send({ from: accounts[0] });
 ```
 
-- ### setBeneficiary (1 parameters):
+- ### setBeneficiary (1 parameter):
 ```newBeneficiaryAddress```
 ```
 let receipt = await contract.methods.setBeneficiary(newBeneficiaryAddress).send({ from: accounts[0] });
