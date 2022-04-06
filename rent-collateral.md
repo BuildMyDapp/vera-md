@@ -1,16 +1,17 @@
 
 
-### What is Vera RentNFT
+# What is Vera RentNFT
 
 RentNFT is an smart contract for ERC-721 and ERC-1155 leasing and renting. Users can lease the NFT and earn rent on them. The main contract of rentNFT is contracts/vRent. This contract allows users to lease ERC-721 and ERC-1155 NFTs in one single transaction.
 
 # Instructions
 - To interact with the contract functions [web3](https://github.com/ChainSafe/web3.js) & [smart contract](https://www.ibm.com/topics/smart-contracts) should be loaded
 
-### Integration Steps
+## Integration Steps
 
 ## Step 1 
-Web3 function 
+### Web3 function 
+ to lease the NFT we have `lease` function where we need to pass 5 given parameters
 - ### lease (5 parameters):
 ```nftAddresses[]```,
 ```tokenIds[]```,
@@ -23,10 +24,17 @@ Web3 function
 let receipt = await contract.methods.lease(token_addresses,token_ids,durations,dailyprices,nftPrices,paymentTypes).send({ from: accounts[0] });
 
 ```
+after leasing NFT we need to call leasing id to for our off-chain data
+**getLeasingId (no parameter)** returns leasing id 
+```
+let leasingId = await contract.methods.getleasingId().call();
+```
+to save NFT off-chain data we need these required parameters
 API Body JSON
+ ### Note this off-chain data parameters are required as per platform requirments, because this data is saving on off-chain so it does not have any relation with smart contract
  ```  {
           owner_address: user_address,
-          lend_id,
+          lend_id, //get from getLeasingId function 
           token_id,
           token_address,
           max_duration,
@@ -37,8 +45,7 @@ API Body JSON
           contract_address,
           transaction_hash,
           type,
-          application_address: ContractUtility.getRentalContractAddress(protocol),
-          nft: {
+          nft: { //NFT metadata
             description,
             name,
             image,
