@@ -134,8 +134,8 @@ to update these paramaters in off-chain of canceled rented NFT's
             status: "Lend"
 ```
 
-### Platform SmartContract Functions
-these smartcontract functions will configure the smartcontract environment, 
+# Platform SmartContract Functions
+These smartcontract functions will help to configure the smartcontract environment and these write functions are only be tramsact by Platform `owner_address`, 
 
 ## Write functions
 
